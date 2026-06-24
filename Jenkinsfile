@@ -22,16 +22,16 @@ pipeline {
             steps {
                 script {
                     if (params.BRANCH == 'main') {
-                        bat '''
-                        echo ===== MAIN BRANCH =====
-                        type main\\index.txt
+                        sh '''
+                        echo "===== MAIN BRANCH ====="
+                        cat Main/index.txt
                         '''
                     }
 
                     if (params.BRANCH == 'dev') {
-                        bat '''
-                        echo ===== DEV BRANCH =====
-                        type dev\\index.txt
+                        sh '''
+                        echo "===== DEV BRANCH ====="
+                        cat Dev/index.txt
                         '''
                     }
                 }
@@ -39,10 +39,3 @@ pipeline {
         }
     }
 }
-
-
-
-
-
-
-
