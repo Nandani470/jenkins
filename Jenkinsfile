@@ -17,30 +17,30 @@ stages {
                 echo "Current Branch: ${env.GIT_BRANCH}"
 
                 sh '''
-                echo "===== WORKSPACE CONTENT ====="
-                pwd
-                ls -R
+                    echo "===== WORKSPACE ====="
+                    pwd
+                    ls -R
                 '''
 
                 if (env.GIT_BRANCH?.contains('main')) {
 
                     sh '''
-                    echo "===== MAIN BRANCH ====="
-                    cat main/index.txt
+                        echo "===== MAIN BRANCH ====="
+                        cat main/index.txt
                     '''
 
                 } else if (env.GIT_BRANCH?.contains('dev')) {
 
                     sh '''
-                    echo "===== DEV BRANCH ====="
-                    cat dev/index.txt
+                        echo "===== DEV BRANCH ====="
+                        cat dev/index.txt
                     '''
 
                 } else if (env.GIT_BRANCH?.contains('test')) {
 
                     sh '''
-                    echo "===== TEST BRANCH ====="
-                    cat test/index.txt
+                        echo "===== TEST BRANCH ====="
+                        cat test/index.txt
                     '''
 
                 } else {
@@ -55,11 +55,11 @@ stages {
 
 post {
     success {
-        echo 'Pipeline executed successfully!'
+        echo 'Build Successful'
     }
 
     failure {
-        echo 'Pipeline failed!'
+        echo 'Build Failed'
     }
 }
 ```
