@@ -26,14 +26,14 @@ stages {
 
                     sh '''
                         echo "===== MAIN BRANCH ====="
-                        cat main/index.txt
+                        cat Main/index.txt
                     '''
 
                 } else if (env.GIT_BRANCH?.contains('dev')) {
 
                     sh '''
                         echo "===== DEV BRANCH ====="
-                        cat dev/index.txt
+                        cat Dev/index.txt
                     '''
 
                 } else if (env.GIT_BRANCH?.contains('test')) {
